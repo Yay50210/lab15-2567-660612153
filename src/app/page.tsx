@@ -52,17 +52,15 @@ const schema = z
     confirmPassword: z.string(),
   })
   .refine(
-      (data) =>{
-        if(data.password===data.confirmPassword)return true;
-      },
-          {
+    (data) =>{
+      if(data.password===data.confirmPassword)return true;
+    },
+
+    {
             message:"“Password does not match",
             path:["confirmPassword"]
-          }
-
-  )
-
-
+   }
+ )
   .refine(
     //refine allows you check error in your own way
     //in this example, we check "hasCoupon" with "coupon" fields
